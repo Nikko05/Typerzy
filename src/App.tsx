@@ -4,22 +4,33 @@ import RegisterPage from './components/RegisterPage';
 import styled from 'styled-components';
 import logoLegia from './assets/logoLegia.svg';
 import { useState } from 'react';
+import RankingPage from './components/RankingPage';
 
 const Logo = styled.img`
   width: 30%;
   margin-bottom: 5%;
-`
+`;
 
 function App() {
-  const [loginPage, setLoginPage] = useState(true);
+  const [registerPage, setRegisterPage] = useState(false);
+  const [logedUser, setLogedUser] = useState(false);
+
   return (
     <>
-      <Logo src={logoLegia} alt="" />
-      {loginPage === true ? (
-        <LoginPage setLoginPage={setLoginPage} />
+      <RankingPage></RankingPage>
+      {/*
+    <>
+    {registerPage === false ? (
+      <LoginPage
+      setRegisterPage={setRegisterPage}
+      setLogedUser={setLogedUser}
+      logedUser={logedUser}
+      />
       ) : (
-        <RegisterPage setLoginPage={setLoginPage} />
-      )}
+        <RegisterPage setRegisterPage={setRegisterPage} />
+        )}
+        </>
+        */}
     </>
   );
 }

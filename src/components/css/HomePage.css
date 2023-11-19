@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: 500;
+  width: 100%;
+}
+
+.inputForResult {
+  width: 25px;
+  height: 32px;
+  background: transparent;
+  border-radius: 8px;
+  font-size: 18px;
+  padding: 2px;
+  outline: none;
+  color: #56203D;
+  text-align: center;
+  border: 1.5px solid #747C92;
+}
+
+.dateOfMatch {
+  width: 100%;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.uclLogo {
+  height: 16px;
+  margin: 0 5px 0 0;
+}
+
+.logOutButton {
+  padding: 10px;
+  border-radius: 10px;
+  background: transparent;
+  outline: none;
+  border: 1.5px solid black;
+  font-weight: 600;
+  position: absolute;
+  top: 20px;
+  right: calc(10vw - 12px);
+}
+
+.rankingLink {
+  height: 40px;
+  position: absolute;
+  top: 16px;
+  left: calc(50% - 20px);
+}
+
+.rankingContainer::after {
+  content: "RANKING";
+  color: black;
+  font-size: 0.8rem;
+  font-weight: 600;
+  position: relative;
+  top: -5px;
+}/*# sourceMappingURL=HomePage.css.map */

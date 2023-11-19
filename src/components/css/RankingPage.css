@@ -1,0 +1,30 @@
+li {
+  list-style-type: none;
+  width: 12%;
+}
+
+.oneUserList li:nth-of-type(2) {
+  width: 40%;
+}
+
+.oneUserList li:last-of-type {
+  font-weight: 600;
+}
+
+.oneUserList {
+  width: 90vw;
+  display: flex;
+}
+
+.titleOfUsersList {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+}
+.titleOfUsersList::after {
+  content: "";
+  height: 2.5px;
+  width: 100%;
+  background-color: black;
+  margin-bottom: 5px;
+}/*# sourceMappingURL=RankingPage.css.map */

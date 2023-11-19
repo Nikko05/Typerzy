@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Hugo",
+    "points": 34,
+    "matchesTypes": 50,
+    "wellTypedmatches": 4,
+    "badTpedMatches": 28,
+    "correctWinnerTyped": 18
+  },
+  {
+    "name": "Adam",
+    "points": 34,
+    "matchesTypes": 50,
+    "wellTypedmatches": 4,
+    "badTpedMatches": 28,
+    "correctWinnerTyped": 18
+  },
+  {
+    "name": "Sebastian",
+    "points": 34,
+    "matchesTypes": 50,
+    "wellTypedmatches": 4,
+    "badTpedMatches": 28,
+    "correctWinnerTyped": 18
+  },
+  {
+    "name": "Artur",
+    "points": 34,
+    "matchesTypes": 50,
+    "wellTypedmatches": 4,
+    "badTpedMatches": 28,
+    "correctWinnerTyped": 18
+  },
+  {
+    "name": "Dawid",
+    "points": 34,
+    "matchesTypes": 50,
+    "wellTypedmatches": 4,
+    "badTpedMatches": 28,
+    "correctWinnerTyped": 18
+  },
+  {
+    "name": "Jakub",
+    "points": 34,
+    "matchesTypes": 50,
+    "wellTypedmatches": 4,
+    "badTpedMatches": 28,
+    "correctWinnerTyped": 18
+  },
+  {
+    "name": "Artur",
+    "points": 34,
+    "matchesTypes": 50,
+    "wellTypedmatches": 4,
+    "badTpedMatches": 28,
+    "correctWinnerTyped": 18
+  },
+  {
+    "name": "Dawid",
+    "points": 34,
+    "matchesTypes": 50,
+    "wellTypedmatches": 4,
+    "badTpedMatches": 28,
+    "correctWinnerTyped": 18
+  },
+  {
+    "name": "Jakub",
+    "points": 34,
+    "matchesTypes": 50,
+    "wellTypedmatches": 4,
+    "badTpedMatches": 28,
+    "correctWinnerTyped": 18
+  }
+]

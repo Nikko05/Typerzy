@@ -1,0 +1,17 @@
+[
+  {
+    "_id": 1,
+    "name": "Adam",
+    "email": "test321@gmail.com",
+    "password": "password",
+    "srcImage": "../../assets/legiaWarsaw.png"
+  },
+  {
+    "_id": 2,
+    "name": "Hugo",
+    "email": "test123@gmail.com",
+    "password": "test123",
+    "srcImage": ""
+  }
+]
+

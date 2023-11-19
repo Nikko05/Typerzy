@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import showPassword from '../assets/show-password.svg';
-import backIcon from '../assets/backIocn.svg'
+import backIcon from '../assets/backIocn.svg';
 import { Form } from './FormStyles';
-import { ContainerInput, Input, InputSubmit, Img } from './InputStyles';
+import {
+  ContainerInput,
+  Input,
+  InputSubmit,
+  Img,
+  ButtonForShowPassword,
+} from './componentsHomePage/InputStyles';
 import { Header, Description, Option, PrefixInput } from './DescriptionsStyles';
 import { styled } from 'styled-components';
-
-const Button = styled.button`
-  border: none;
-  background: transparent;
-  outline: none;
-`;
 
 const BackPage = styled.button`
   position: absolute;
@@ -23,78 +23,104 @@ const BackPage = styled.button`
   align-items: center;
   background: transparent;
   border: none;
-`
+`;
 
 const BackButton = styled.img`
   height: 22px;
-  opacity: .8;
-`
+  opacity: 0.8;
+`;
 
-interface loginPage {
-  setLoginPage: React.Dispatch<React.SetStateAction<boolean>>;
+interface registerPage {
+  setRegisterPage: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-function RegisterPage({ setLoginPage }: loginPage) {
-  const [inputsObject, setInputsObjects] = useState([
-    {
-      label: 'Username',
-      type: 'text',
-      name: 'username',
-      placeholder: 'Enter username',
-    },
-    {
-      label: 'Email',
-      type: 'email',
-      name: 'email',
-      placeholder: 'Enter your email',
-    },
-    {
-      label: 'Password',
-      type: 'password',
-      name: 'password',
-      placeholder: 'Enter password',
-      src: showPassword,
-    },
-    {
-      label: 'Confirm password',
-      type: 'password',
-      name: 'password',
-      placeholder: 'Confirm password',
-      src: showPassword,
-    },
-  ]);
+function RegisterPage({ setRegisterPage }: registerPage) {
+  const [user, setUser] = useState({
+    login: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setUser({ ...user, [name]: value });
+  };
 
   const handleShowPassword = (index: number) => {
-    const changedInoutsObject = [...inputsObject];
-    changedInoutsObject[index].type =
-      changedInoutsObject[index].type === 'password' ? 'text' : 'password';
-    setInputsObjects(changedInoutsObject);
+    const passwordInputs = Array.from(
+      document.querySelectorAll<HTMLInputElement>('.password')
+    );
+    passwordInputs[index].type =
+      passwordInputs[index].type === 'password' ? 'text' : 'password';
   };
 
   return (
     <>
-      <BackPage onClick={() => setLoginPage(true)}><BackButton src={backIcon} alt="Back icon" /></BackPage>
+      <BackPage onClick={() => setRegisterPage(true)}>
+        <BackButton src={backIcon} alt="Back icon" />
+      </BackPage>
       <Form action="">
-        {inputsObject.map(({ label, type, name, placeholder, src }, index) => (
-          <>
-            <PrefixInput>{label}</PrefixInput>
-            <ContainerInput>
-              <Input
-                type={type}
-                name={name}
-                placeholder={placeholder}
-                key={index}
-              ></Input>
-              {src ? (
-                <Button type="button" onClick={() => handleShowPassword(index)}>
-                  <Img src={src} alt="Show password" />
-                </Button>
-              ) : (
-                ''
-              )}
-            </ContainerInput>
-          </>
-        ))}
+        <PrefixInput>Username</PrefixInput>
+        <ContainerInput>
+          <Input
+            type="text"
+            name="login"
+            placeholder="Enter your username"
+            value={user.login}
+            onChange={handleChange}
+          ></Input>
+        </ContainerInput>
+
+        <PrefixInput>Email</PrefixInput>
+        <ContainerInput>
+          <Input
+            type="text"
+            name="email"
+            placeholder="Enter your email"
+            value={user.email}
+            onChange={handleChange}
+          ></Input>
+        </ContainerInput>
+
+        <PrefixInput>Password</PrefixInput>
+        <ContainerInput>
+          <Input
+            type="password"
+            name="password"
+            placeholder="Enter your password"
+            key={0}
+            value={user.password}
+            className="password"
+            onChange={handleChange}
+          ></Input>
+          <ButtonForShowPassword
+            type="button"
+            onClick={() => handleShowPassword(0)}
+          >
+            <Img src={showPassword} alt="Show password" />
+          </ButtonForShowPassword>
+        </ContainerInput>
+
+        <PrefixInput>Repeat password</PrefixInput>
+        <ContainerInput>
+          <Input
+            type="password"
+            name="confirmPassword"
+            placeholder="Repeat your password"
+            key={1}
+            className="password"
+            value={user.confirmPassword}
+            onChange={handleChange}
+          ></Input>
+          <ButtonForShowPassword
+            type="button"
+            onClick={() => handleShowPassword(1)}
+          >
+            <Img src={showPassword} alt="Show password" />
+          </ButtonForShowPassword>
+        </ContainerInput>
+
         <InputSubmit type="submit" name="submit" value="Register"></InputSubmit>
       </Form>
     </>
