@@ -8,33 +8,12 @@ import {
   InputSubmit,
   Img,
   ButtonForShowPassword,
-} from './componentsHomePage/InputStyles';
+} from './smallComponents/InputStyles';
 import { Header, Description, Option, PrefixInput } from './DescriptionsStyles';
 import { styled } from 'styled-components';
+import { Link } from 'react-router-dom';
 
-const BackPage = styled.button`
-  position: absolute;
-  top: 30px;
-  left: 10vw;
-  width: 30px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: transparent;
-  border: none;
-`;
-
-const BackButton = styled.img`
-  height: 22px;
-  opacity: 0.8;
-`;
-
-interface registerPage {
-  setRegisterPage: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-function RegisterPage({ setRegisterPage }: registerPage) {
+function RegisterPage() {
   const [user, setUser] = useState({
     login: '',
     email: '',
@@ -57,9 +36,11 @@ function RegisterPage({ setRegisterPage }: registerPage) {
 
   return (
     <>
-      <BackPage onClick={() => setRegisterPage(true)}>
-        <BackButton src={backIcon} alt="Back icon" />
-      </BackPage>
+      <Link to={'/'}>
+        <BackPage>
+          <BackButton src={backIcon} alt="Back icon" />
+        </BackPage>
+      </Link>
       <Form action="">
         <PrefixInput>Username</PrefixInput>
         <ContainerInput>
@@ -128,3 +109,21 @@ function RegisterPage({ setRegisterPage }: registerPage) {
 }
 
 export default RegisterPage;
+
+const BackPage = styled.button`
+  position: absolute;
+  top: 30px;
+  left: 10vw;
+  width: 30px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+`;
+
+const BackButton = styled.img`
+  height: 22px;
+  opacity: 0.8;
+`;

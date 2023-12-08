@@ -28,6 +28,7 @@ export const Input = styled.input`
 `
 
 export const InputSubmit = styled.input`
+  width: 100%;
   margin: 8px 0;
   background: transparent;
   font-size: 0.8em;

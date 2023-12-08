@@ -49,6 +49,10 @@
   left: calc(50% - 20px);
 }
 
+.rankingContainer {
+  text-decoration: none;
+}
+
 .rankingContainer::after {
   content: 'RANKING';
 

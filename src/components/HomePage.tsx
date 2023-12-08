@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './css/HomePage.scss';
-import CardMatch from './componentsHomePage/CardMatch';
+import CardMatch from './smallComponents/CardMatch';
 import styled from 'styled-components';
 import LegiaLogo from '../assets/legiaWarsaw.png';
 import BayernLogo from '../assets/bayernMunchen.png';
@@ -8,8 +8,7 @@ import UCLLogo from '../assets/uclLogo.png';
 import Users from './jsonFiles/users.json';
 import ProfileImage from '../assets/profile.svg';
 import RankingImage from '../assets/ranking.svg';
-import RankingPage from './RankingPage';
-import LoginPage from './LoginPage';
+import { Link } from 'react-router-dom';
 
 //#090c02
 const ContainerMatches = styled.body`
@@ -72,63 +71,43 @@ const teams = [
   },
 ];
 
-interface homePage {
-  logedUser: boolean;
-  setLogedUser: React.Dispatch<React.SetStateAction<boolean>>;
-  setRegisterPage: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-function HomePage({ logedUser, setLogedUser, setRegisterPage }: homePage) {
-  const handleLogOut = () => {
-    setLogedUser(false);
-  };
-
+function HomePage() {
   return (
     <>
-      {logedUser === true ? (
-        <>
-          <Header>
-            <div className="rankingContainer">
-              <img className="rankingLink" src={RankingImage} alt="" />
-            </div>
-            <Profile src={ProfileImage}></Profile>
-            <button className="logOutButton" onClick={handleLogOut}>
-              LOG OUT
-            </button>
-          </Header>
-          <ContainerMatches>
-            {teams.map(
-              (
-                {
-                  nameFirtsTeam,
-                  logoFirstTeam,
-                  nameSecondTeam,
-                  logoSecondTeam,
-                  competitionName,
-                  competitionLogo,
-                },
-                index
-              ) => (
-                <CardMatch
-                  key={index}
-                  nameFirstTeam={nameFirtsTeam}
-                  logoFirstTeam={logoFirstTeam}
-                  nameSecondTeam={nameSecondTeam}
-                  logoSecondTeam={logoSecondTeam}
-                  competiitonName={competitionName}
-                  competitionLogo={competitionLogo}
-                />
-              )
-            )}
-          </ContainerMatches>
-        </>
-      ) : (
-        <LoginPage
-          logedUser={false}
-          setLogedUser={() => setLogedUser(false)}
-          setRegisterPage={() => setRegisterPage(false)}
-        />
-      )}
+      <Header>
+        <Link to={'/ranking'} className="rankingContainer">
+          <img className="rankingLink" src={RankingImage} alt="" />
+        </Link>
+        <Profile src={ProfileImage}></Profile>
+        <Link to={'/'}>
+          <button className="logOutButton">LOG OUT</button>
+        </Link>
+      </Header>
+      <ContainerMatches>
+        {teams.map(
+          (
+            {
+              nameFirtsTeam,
+              logoFirstTeam,
+              nameSecondTeam,
+              logoSecondTeam,
+              competitionName,
+              competitionLogo,
+            },
+            index
+          ) => (
+            <CardMatch
+              key={index}
+              nameFirstTeam={nameFirtsTeam}
+              logoFirstTeam={logoFirstTeam}
+              nameSecondTeam={nameSecondTeam}
+              logoSecondTeam={logoSecondTeam}
+              competiitonName={competitionName}
+              competitionLogo={competitionLogo}
+            />
+          )
+        )}
+      </ContainerMatches>
     </>
   );
 }

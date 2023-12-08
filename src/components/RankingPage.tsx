@@ -2,41 +2,14 @@ import React from 'react';
 import RankingDB from '../components/jsonFiles/ranking.json';
 import styled from 'styled-components';
 import './css/RankingPage.scss';
-
-const UserElement = styled.li`
-  width: 90vw;
-  display: flex;
-  flex-direction: column;
-  padding: 5px 0;
-
-  ul {
-    display: flex;
-    width: 100%;
-  }
-
-  &::after {
-    content: '';
-
-    height: 2px;
-    width: 100%;
-    background-color: black;
-  }
-`;
-
-const BackToHomePage = styled.button`
-  padding: 5px 15px;
-  font-size: 1.2rem;
-  border: 1.5px solid black;
-  border-radius: 10px;
-  position: absolute;
-  top: 20px;
-  left: 5vw;
-`
+import { Link } from 'react-router-dom';
 
 function RankingPage() {
   return (
     <>
-      <BackToHomePage>Back</BackToHomePage>
+      <Link to={'/home'}>
+        <BackToHomePage>Back</BackToHomePage>
+      </Link>
       <div className="titleOfUsersList">
         <ul className="oneUserList">
           <li>LP.</li>
@@ -81,3 +54,34 @@ function RankingPage() {
 }
 
 export default RankingPage;
+
+const UserElement = styled.li`
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 0;
+
+  ul {
+    display: flex;
+    width: 100%;
+  }
+
+  &::after {
+    content: '';
+
+    height: 2px;
+    width: 100%;
+    background-color: black;
+  }
+`;
+
+const BackToHomePage = styled.button`
+background: transparent;
+  padding: 5px 15px;
+  font-size: 1.2rem;
+  border: 2px solid black;
+  border-radius: 10px;
+  position: absolute;
+  top: 20px;
+  left: 5vw;
+`;
