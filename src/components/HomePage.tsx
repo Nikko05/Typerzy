@@ -72,6 +72,7 @@ const teams = [
 ];
 
 function HomePage() {
+  
   return (
     <>
       <Header>
